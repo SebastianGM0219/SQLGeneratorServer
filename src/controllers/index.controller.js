@@ -110,13 +110,7 @@ const getTables = async (req,res)=>{
             const columns = await getTableFields(item.table_name);
             const isView = `SELECT * FROM information_schema.views WHERE table_name = $1`
             const ViewResult = await client.query(isView, [item.table_name]);
-
-            
-
-//            console.log(columns);
-//            console.log(ViewResult);
-            console.log({ name: item.table_name, isChecked: false, hasKey, columns,
-                table_type: {isView: ViewResult.rowCount>0? '1':'0', viewCommand: ViewResult.rowCount>0? ViewResult.rows[0].view_definition:''}});
+            //     table_type: {isView: ViewResult.rowCount>0? '1':'0', viewCommand: ViewResult.rowCount>0? ViewResult.rows[0].view_definition:''}});
             return { name: item.table_name, isChecked: false, hasKey, columns,
                 table_type: {isView: ViewResult.rowCount>0? '1':'0', viewCommand: ViewResult.rowCount>0? ViewResult.rows[0].view_definition:''}} ;
           }));      
