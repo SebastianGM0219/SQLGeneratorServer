@@ -154,7 +154,7 @@ const getUserById = async (req,res) => {
 
 const runQuery = async (req, res) => {
     const {query} = req.body;
-    // console.log(query);
+     console.log(query);
     try{
         const client = await pool.connect();
         const response = await client.query(query);
@@ -166,7 +166,7 @@ const runQuery = async (req, res) => {
 }
 const testQuery = async (req, res) => {
     const {query} = req.body;
-    // console.log(query);
+    console.log(query);
     try{
         const client = await pool.connect();
         const response = await client.query(query);
