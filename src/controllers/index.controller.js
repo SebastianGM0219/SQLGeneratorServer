@@ -23,7 +23,7 @@ const dataType = {
 const setDBInfo = async (req, res) => {
     const {host, username, password, port, db} = req.body;
     const connectionString = `postgres://${username}:${password}@${host}:${port}/${db}`
-    pool = new Pool({connectionString, ssl: false});
+    pool = new Pool({connectionString, ssl: true});
 
     pool.connect((err, client, release) => {
         if(err) {
