@@ -10,4 +10,8 @@ router.get('/foreigntables',getForeignTables);
 router.post('/query', runQuery);
 router.post('/testquery', testQuery);
 
+router.get('/test', (req, res) => {
+  res.status(200).json('Welcome, your app is working well');
+})
+
 module.exports = router;
